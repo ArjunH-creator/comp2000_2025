@@ -8,6 +8,8 @@ public class Bird extends Actor {
     color = Color.GREEN;
     display = new ArrayList<Polygon>();
     Polygon wing1 = new Polygon();
+    addItems(new Seed());  // Adding Seed to the Bird's inventory
+    addItems(new Seed());  // Adding another Seed to the Bird's inventory
     wing1.addPoint(loc.x + 5, loc.y + 5);
     wing1.addPoint(loc.x + 15, loc.y + 17);
     wing1.addPoint(loc.x + 5, loc.y + 17);

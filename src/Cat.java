@@ -7,6 +7,8 @@ public class Cat extends Actor {
     loc = inLoc;
     color = Color.BLUE;
     display = new ArrayList<Polygon>();
+    addItems(new Fish());  // Adding Fish to the Cat's inventory
+    addItems(new Fish());  // Adding another Seed to the Bird's inventory
     Polygon ear1 = new Polygon();
     ear1.addPoint(loc.x + 11, loc.y + 5);
     ear1.addPoint(loc.x + 15, loc.y + 15);
