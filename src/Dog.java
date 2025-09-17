@@ -7,8 +7,8 @@ public class Dog extends Actor {
     loc = inLoc;
     color = Color.YELLOW;
     display = new ArrayList<Polygon>();
-    additem(new Bone());
-    additem(new Bone());
+    addItems(new Bone());
+    addItems(new Bone());
     Polygon ear1 = new Polygon();
     ear1.addPoint(loc.x + 5, loc.y + 5);
     ear1.addPoint(loc.x + 15, loc.y + 5);
@@ -25,5 +25,8 @@ public class Dog extends Actor {
     display.add(face);
     display.add(ear1);
     display.add(ear2);
+  }
+  public void move(int dx, int dy) {
+      super.move(dx, dy);
   }
 }

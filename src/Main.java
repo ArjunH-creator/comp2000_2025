@@ -1,5 +1,7 @@
 import java.awt.Dimension;
 import java.awt.Graphics;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -14,6 +16,13 @@ public class Main extends JFrame {
       Stage stage = new Stage();
       public Canvas() {
         setPreferredSize(new Dimension(1024, 720));
+        addMouseListener(new MouseAdapter() {
+          public void mouseClicked(MouseEvent e) {
+            Point mousePos = e.getPoint();
+            stage.moveActor(mousePos);
+            repaint();
+          }
+        });
       }
 
       @Override

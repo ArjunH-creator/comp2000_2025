@@ -26,4 +26,7 @@ public class Bird extends Actor {
     display.add(wing1);
     display.add(wing2);
   }
+  public void move(int dx, int dy) {
+    super.move(dx, dy);
+  }
 }

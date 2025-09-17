@@ -25,4 +25,7 @@ public class Cat extends Actor {
     display.add(ear1);
     display.add(ear2);
   }
+  public void move(int dx, int dy) {
+    super.move(dx, dy);
+  }
 }
