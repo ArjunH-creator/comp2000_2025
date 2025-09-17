@@ -8,6 +8,8 @@ public abstract class Actor {
   Cell loc;
   List<Polygon> display;
 
+  Inventory<Item> inventory = new Inventory<>(); //each actor has inventory that can hold items
+
   public void paint(Graphics g) {
     for(Polygon p: display) {
       g.setColor(color);
@@ -15,5 +17,13 @@ public abstract class Actor {
       g.setColor(Color.GRAY);
       g.drawPolygon(p);
     }
+  }
+
+  public void addItems(Item item) {
+    inventory.addItem(item);
+  }
+
+  public Inventory<Item> getInventory() {
+    return inventory; 
   }
 }
