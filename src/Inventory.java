@@ -1,3 +1,4 @@
+//Uses generics to store any type of Item
 import java.util.ArrayList; 
 import java.util.List; 
 

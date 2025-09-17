@@ -1,3 +1,5 @@
+
+//example: terrain with movement cost 1
 import java.awt.Color;
 
 public class Grass implements Terrain {
@@ -6,6 +8,6 @@ public class Grass implements Terrain {
     }
 
     public Color getColor() {
-        return Color.GREEN    
+        return Color.GREEN;   
     }
 }

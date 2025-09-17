@@ -1,31 +1,35 @@
 import java.awt.Color;
 import java.awt.Polygon;
-import java.util.ArrayList;
+
 
 public class Cat extends Actor {
   public Cat(Cell inLoc) {
     loc = inLoc;
     color = Color.BLUE;
-    display = new ArrayList<Polygon>();
-    addItems(new Fish());  // Adding Fish to the Cat's inventory
-    addItems(new Fish());  // Adding another Seed to the Bird's inventory
+    
     Polygon ear1 = new Polygon();
-    ear1.addPoint(loc.x + 11, loc.y + 5);
-    ear1.addPoint(loc.x + 15, loc.y + 15);
-    ear1.addPoint(loc.x + 7, loc.y + 15);
+    ear1.addPoint(11,5);
+    ear1.addPoint(15, 15);
+    ear1.addPoint(7, 15);
+    
     Polygon ear2 = new Polygon();
-    ear2.addPoint(loc.x + 22, loc.y + 5);
-    ear2.addPoint(loc.x + 26, loc.y + 15);
-    ear2.addPoint(loc.x + 18, loc.y + 15);
+    ear2.addPoint(22, 5);
+    ear2.addPoint(26,15);
+    ear2.addPoint(18,15);
+    
     Polygon face = new Polygon();
-    face.addPoint(loc.x + 5, loc.y + 15);
-    face.addPoint(loc.x + 29, loc.y + 15);
-    face.addPoint(loc.x + 17, loc.y + 30);
-    display.add(face);
-    display.add(ear1);
-    display.add(ear2);
+    face.addPoint(5, 15);
+    face.addPoint(29,15);
+    face.addPoint(17, 30);
+    
+    displayOffSets.add(face);
+    displayOffSets.add(ear1);
+    displayOffSets.add(ear2);
   }
-  public void move(int dx, int dy) {
-    super.move(dx, dy);
+  
+  @Override
+  public boolean canEnter(Cell cell) {
+    //cat cannot walk on water
+    return !(cell.terrain instanceof Water);
   }
 }

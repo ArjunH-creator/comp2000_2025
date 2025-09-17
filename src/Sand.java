@@ -1,3 +1,4 @@
+// Terrain with slightly higher movement cost
 import java.awt.Color; 
 
 public class Sand implements Terrain {

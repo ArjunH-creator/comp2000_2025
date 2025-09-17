@@ -1,3 +1,4 @@
+// Holds all cells and provides lookup methods
 import java.awt.Graphics;
 import java.awt.Point;
 import java.util.Optional;
@@ -8,23 +9,25 @@ public class Grid {
   public Grid() {
     for(int i=0; i<cells.length; i++) {
       for(int j=0; j<cells[i].length; j++) {
-        cells[i][j] = new Cell(colToLabel(i), j, 10+Cell.size*i, 10+Cell.size*j);
+        Terrain terrain = (i + j) % 5 == 0 ? new Sand() : new Grass();
+        if (i == 5 && j == 5) terrain = new Water(); // water example
+        cells[i][j] = new Cell(colToLabel(i), j, 10+Cell.size*i, 10+Cell.size*j, new Grass());
       }
     }
   }
 
   private char colToLabel(int col) {
-    return (char) (col + Character.valueOf('A'));
+    return (char) (col + 'A');
   }
 
   private int labelToCol(char col) {
-    return (int) (col - Character.valueOf('A'));
+    return col - 'A';
   }
 
   public void paint(Graphics g, Point mousePos) {
-    for(int i=0; i<cells.length; i++) {
-      for(int j=0; j<cells[i].length; j++) {
-        cells[i][j].paint(g, mousePos);
+    for (Cell[] row : cells) {
+      for (Cell c : row) {
+        c.paint(g, mousePos);
       }
     }
   }
@@ -42,11 +45,9 @@ public class Grid {
   }
 
   public Optional<Cell> cellAtPoint(Point p) {
-    for(int i=0; i < cells.length; i++) {
-      for(int j=0; j < cells[i].length; j++) {
-        if(cells[i][j].contains(p)) {
-          return Optional.of(cells[i][j]);
-        }
+    for (Cell[] row : cells) {
+      for(Cell c : row) {
+        if(c.contains(p)) return Optional.of(c);
       }
     }
     return Optional.empty();

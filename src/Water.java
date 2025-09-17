@@ -1,3 +1,4 @@
+// Harder terrain. Birds can move over it, others cannot
 import java.awt.Color; 
 
 public class Water implements Terrain {

@@ -8,17 +8,27 @@ public class Cell extends Rectangle {
   char col;
   int row;
   Terrain terrain; 
+  Item item; 
 
   public Cell(char inCol, int inRow, int x, int y, Terrain terrain) {
     super(x, y, size, size);
     col = inCol;
     row = inRow;
     this.terrain = terrain; 
+    this.item = null;
   }
 
   public void paint(Graphics g, Point mousePos) {
     g.setColor(terrain.getColor());
     g.fillRect(x, y, size, size);
+
+    if(item != null) {
+      if(item instanceof Fish) g.setColor(Color.MAGENTA);
+      else if(item instanceof Bone) g.setColor(Color.ORANGE);
+      else if(item instanceof Seed) g.setColor(Color.CYAN);
+
+      g.drawString(item.getName(), x + 5, y + 20);
+    }
     
     
   // If the mouse is over this cell, paint a semi-transparent overlay
@@ -31,6 +41,8 @@ public class Cell extends Rectangle {
     g.drawRect(x, y, size, size);
   }
 
+  
+  // Draw the item if present
   public boolean contains(Point p) {
     if(p != null) {
       return super.contains(p);
