@@ -34,6 +34,13 @@ public class Stage {
     
     for(Actor a: actors) {
       a.paint(g);
+
+      //draw points for actors
+      g.setColor(Color.BLACK);
+      g.drawString(
+        a.getClass().getSimpleName() + " points: " + a.points, 
+        750, 20 + actors.indexOf(a) * 20
+      );
     }
     
     Optional<Cell> underMouse = grid.cellAtPoint(mouseLoc);

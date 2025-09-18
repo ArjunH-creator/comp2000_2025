@@ -12,9 +12,11 @@ public abstract class Actor {
   Cell loc;
   List<Polygon> displayOffSets; //polygons stores as offsets from cell
   Inventory<Item> inventory = new Inventory<>(); //each actor has inventory that can hold items
+  int points = 0;  // points for collected items
   
   public Actor() {
     displayOffSets = new ArrayList<>();
+    inventory = new Inventory<>();
   }
   
   public void paint(Graphics g) {
@@ -32,6 +34,13 @@ public abstract class Actor {
 
   public void addItems(Item item) {
     inventory.addItem(item);
+    
+    // Award points based on actor type
+    if(this instanceof Cat && item instanceof Fish) points++;
+    if(this instanceof Dog && item instanceof Bone) points++;
+    if(this instanceof Bird && item instanceof Seed) points++;
+    
+    System.out.println(this.getClass().getSimpleName() + " collected " + points + " points(s)");
   }
 
   public Inventory<Item> getInventory() {
