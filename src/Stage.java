@@ -40,7 +40,7 @@ public class Stage {
       g.setColor(Color.BLACK);
       g.drawString(
         a.getClass().getSimpleName() + " points: " + a.points, 
-        750, 20 + actors.indexOf(a) * 20
+        780, 20 + actors.indexOf(a) * 20
       );
     }
     
