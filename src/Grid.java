@@ -10,8 +10,8 @@ public class Grid {
     for(int i=0; i<cells.length; i++) {
       for(int j=0; j<cells[i].length; j++) {
         Terrain terrain = (i + j) % 5 == 0 ? new Sand() : new Grass();
-        if (i == 5 && j == 5) terrain = new Water(); // water example
-        cells[i][j] = new Cell(colToLabel(i), j, 10+Cell.size*i, 10+Cell.size*j, new Grass());
+        if (i == 7 && j == 6) terrain = new Water(); // water example
+        cells[i][j] = new Cell(colToLabel(i), j, 10+Cell.size*i, 10+Cell.size*j, terrain);
       }
     }
   }
@@ -52,4 +52,6 @@ public class Grid {
     }
     return Optional.empty();
   }
+
+
 }
