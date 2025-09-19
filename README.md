@@ -14,19 +14,18 @@ This implementation demonstrates inheritance, interfaces, generics, and thoughtf
 
 ## Features (Functionality)
 
-- Interactive grid where clicking a cell moves an actor.
-- Multiple terrain types: `Grass` and `Water`.
-- Items placed on the grid: `Fish`, `Bone`, and `Seed`.
-- Different actors (`Cat`, `Dog`, `Bird`) with custom movement rules:
-  - Cat cannot enter water.
-- Actors can collect items and store them in an inventory.
-- Items are visually distinct using colors:
-  - Fish – Magenta  
-  - Bone – Orange  
-  - Seed – Cyan  
-- **Points system**: Each actor collects points when picking up items relevant to them:
-  - Cat collects points for Fish.   
-  - Points are displayed on the GUI in real-time, giving feedback as actors collect items.
+-Interactive grid where clicking a cell moves an actor.
+-Multiple terrain types: Grass and Water.
+-Items placed on the grid: Fish, Bone, and Seed.
+-Actors (Cat, Dog, Bird) with custom movement rules:
+-Cat cannot enter water.
+-Item collection: Clicking on a cell lets the Cat collect Fish only.
+-Points system: The Cat earns points when collecting Fish.
+-Points are displayed on the GUI in real-time, giving immediate feedback.
+-Items are visually distinct using colors:
+-Fish – Magenta
+-Bone – Orange
+-Seed – Cyan
 
 ---
 
