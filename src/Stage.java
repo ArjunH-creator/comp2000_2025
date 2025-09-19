@@ -8,6 +8,7 @@ import java.util.Optional;
 public class Stage {
   Grid grid;
   List<Actor> actors;
+  int currentActorIndex = 0; 
 
   public Stage() {
     grid = new Grid();
@@ -52,25 +53,25 @@ public class Stage {
   }
 
   public void moveActor(Point mousePos) {
-    Optional<Cell> clickedCell =  grid.cellAtPoint(mousePos);
-    if (clickedCell.isPresent() && !actors.isEmpty()) {
-        Actor actor = actors.get(0);// get cat actor
-        Cell target = clickedCell.get(); 
+    Optional<Cell> clickedCell = grid.cellAtPoint(mousePos);
+    if (clickedCell.isPresent()) {
+      Cell target = clickedCell.get();
+      Actor actor = actors.get(currentActorIndex);
 
-        if (actor.canEnter(target)) {
+        if(actor.canEnter(target)) {
           actor.loc = target;
           
-          //collect item if present
-          if (target.item != null) {
-            if ((actor instanceof Cat && target.item instanceof Fish) ||
-                    (actor instanceof Dog && target.item instanceof Bone) ||
-                    (actor instanceof Bird && target.item instanceof Seed)) {
+          if(target.item != null) {
+            if((actor instanceof Cat && target.item instanceof Fish) ||
+               (actor instanceof Dog && target.item instanceof Bone) ||
+               (actor instanceof Bird && target.item instanceof Seed)) {
 
-                    actor.addItems(target.item);
-                    target.item = null; // remove item from cell
-                }
+                actor.addItems(target.item);
+                target.item = null; //remove item 
+               }
           }
-      }  
+          currentActorIndex = (currentActorIndex + 1) % actors.size();
+        }
     }
   }
 }

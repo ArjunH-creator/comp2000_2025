@@ -27,8 +27,6 @@ public class Dog extends Actor {
     displayOffSets.add(ear1);
     displayOffSets.add(ear2);
 
-    addItems(new Bone());
-    addItems(new Bone());
   }
   
   @Override

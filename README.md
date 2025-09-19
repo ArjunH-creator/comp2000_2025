@@ -4,9 +4,9 @@
 Arjun Sankar Hariharasuthan
 
 ## Overview
-This project extends the Week 5 grid classwork into a small interactive game featuring actors and items. The grid is no longer featureless: each `Cell` can have different terrain types (`Water`, `Grass`, etc.), and items (`Fish`, `Bone`, `Seed`) can exist on the cells for actors to collect.
+This project builds upon Week 5 grid classwork and expands it into a little interactive game with actors and items. The grid is no longer featureless, any `Cell` may have different types of terrain (`Water`, `Grass`, etc.), and items (`Fish`, `Bone`, `Seed`) can be on the cells for actors to collect.
 
-Actors (`Cat`, `Dog`, `Bird`) are represented as polygons, have movement rules based on terrain, and maintain an inventory. Clicking on a cell moves the first actor (the Cat) if the cell is passable and collects any item present.
+Actors (`Cat`, `Dog`, `Bird`) are represented as polygons, can move based on terrain, and maintain an inventory. Clicking in a cell moves the first actor (the Cat) if the cell is traversable and collects any object present.
 
 This implementation demonstrates inheritance, interfaces, generics, and thoughtful design improvements.
 

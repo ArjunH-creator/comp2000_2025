@@ -27,8 +27,6 @@ public class Bird extends Actor {
     displayOffSets.add(wing1);
     displayOffSets.add(wing2);
 
-    addItems(new Seed());  // Adding Seed to the Bird's inventory
-    addItems(new Seed());  // Adding another Seed to the Bird's inventory
   }
 
   @Override
