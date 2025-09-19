@@ -35,12 +35,15 @@ public abstract class Actor {
   public void addItems(Item item) {
     inventory.addItem(item);
     
-    // Award points based on actor type
-    if(this instanceof Cat && item instanceof Fish) points++;
-    if(this instanceof Dog && item instanceof Bone) points++;
-    if(this instanceof Bird && item instanceof Seed) points++;
-    
-    System.out.println(this.getClass().getSimpleName() + " collected " + points + " points(s)");
+    // Only collect allowed items
+    if ((this instanceof Cat && item instanceof Fish) ||
+        (this instanceof Dog && item instanceof Bone) ||
+        (this instanceof Bird && item instanceof Seed)) {
+        
+        inventory.addItem(item);
+        points++;
+        System.out.println(this.getClass().getSimpleName() + " collected " + points + " point(s)");
+    }
   }
 
   public Inventory<Item> getInventory() {

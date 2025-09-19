@@ -54,16 +54,21 @@ public class Stage {
   public void moveActor(Point mousePos) {
     Optional<Cell> clickedCell =  grid.cellAtPoint(mousePos);
     if (clickedCell.isPresent() && !actors.isEmpty()) {
-        Actor firstActor = actors.get(0); // move the first actor
+        Actor actor = actors.get(0);// get cat actor
         Cell target = clickedCell.get(); 
 
-        if (firstActor.canEnter(target)) {
-          firstActor.loc = target;
+        if (actor.canEnter(target)) {
+          actor.loc = target;
           
           //collect item if present
-          if (target.item != null && target.item instanceof Fish) {
-            firstActor.addItems(target.item);
-            target.item = null; //remove item from cell
+          if (target.item != null) {
+            if ((actor instanceof Cat && target.item instanceof Fish) ||
+                    (actor instanceof Dog && target.item instanceof Bone) ||
+                    (actor instanceof Bird && target.item instanceof Seed)) {
+
+                    actor.addItems(target.item);
+                    target.item = null; // remove item from cell
+                }
           }
       }  
     }
