@@ -5,10 +5,10 @@ Arjun Sankar Hariharasuthan
 
 ## Overview
 This project builds on Week 5 grid classwork and turns it into a small interactive game. The grid now has different terrain types (Water, Grass, Sand) and items (Fish, Bone, Seed) that actors can collect.
-G
+
 Actors (Cat, Dog, Bird) are polygons that move according to terrain rules and can carry items in an inventory. Clicking a cell moves the current actor if the cell is passable and picks up any compatible item.
 
-This project shows use of inheritance, interfaces, and generics.
+This project demonstrates use of inheritance, interfaces, and generics.
 
 ---
 
@@ -16,7 +16,7 @@ This project shows use of inheritance, interfaces, and generics.
 
 - Clicking a cell moves the actor in turn: Cat → Dog → Bird.  
 - Multiple terrain types: Grass, Sand, Water.  
-- Water cell is randomly placed for variety; Sand follows a pattern.  
+- Water cells are randomly placed for variety; Sand follows a pattern.  
 - Items on the grid: Fish, Bone, Seed.  
 - Custom movement rules:  
   - Cat and Dog cannot enter water.  
@@ -63,6 +63,7 @@ This demonstrates genuine use of generics beyond standard collections.
 
 1. Make sure Java 11 or 21 is installed.  
 2. Open a terminal in the project folder.  
-3. Compile all files:  
+3. Compile all Java files:
 
-
+```bash
+javac *.java
