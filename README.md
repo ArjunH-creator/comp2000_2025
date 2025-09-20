@@ -5,7 +5,7 @@ Arjun Sankar Hariharasuthan
 
 ## Overview
 This project builds on Week 5 grid classwork and turns it into a small interactive game. The grid now has different terrain types (Water, Grass, Sand) and items (Fish, Bone, Seed) that actors can collect.
-
+G
 Actors (Cat, Dog, Bird) are polygons that move according to terrain rules and can carry items in an inventory. Clicking a cell moves the current actor if the cell is passable and picks up any compatible item.
 
 This project shows use of inheritance, interfaces, and generics.
@@ -16,7 +16,7 @@ This project shows use of inheritance, interfaces, and generics.
 
 - Clicking a cell moves the actor in turn: Cat → Dog → Bird.  
 - Multiple terrain types: Grass, Sand, Water.  
-- Water cells are randomly placed for variety; Sand follows a pattern.  
+- Water cell is randomly placed for variety; Sand follows a pattern.  
 - Items on the grid: Fish, Bone, Seed.  
 - Custom movement rules:  
   - Cat and Dog cannot enter water.  
