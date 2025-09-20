@@ -4,64 +4,65 @@
 Arjun Sankar Hariharasuthan
 
 ## Overview
-This project builds upon Week 5 grid classwork and expands it into a little interactive game with actors and items. The grid is no longer featureless, any `Cell` may have different types of terrain (`Water`, `Grass`, etc.), and items (`Fish`, `Bone`, `Seed`) can be on the cells for actors to collect.
+This project builds on Week 5 grid classwork and turns it into a small interactive game. The grid now has different terrain types (Water, Grass, Sand) and items (Fish, Bone, Seed) that actors can collect.
 
-Actors (`Cat`, `Dog`, `Bird`) are represented as polygons, can move based on terrain, and maintain an inventory. Clicking in a cell moves the first actor (the Cat) if the cell is traversable and collects any object present.
+Actors (Cat, Dog, Bird) are polygons that move according to terrain rules and can carry items in an inventory. Clicking a cell moves the current actor if the cell is passable and picks up any compatible item.
 
-This implementation demonstrates inheritance, interfaces, generics, and thoughtful design improvements.
-
----
-
-## Features (Functionality)
-
--Interactive grid where clicking a cell moves an actor.
--Multiple terrain types: Grass and Water.
--Items placed on the grid: Fish, Bone, and Seed.
--Actors (Cat, Dog, Bird) with custom movement rules:
--Cat cannot enter water.
--Item collection: Clicking on a cell lets the Cat collect Fish only.
--Points system: The Cat earns points when collecting Fish.
--Points are displayed on the GUI in real-time, giving immediate feedback.
--Items are visually distinct using colors:
--Fish – Magenta
--Bone – Orange
--Seed – Cyan
+This project shows use of inheritance, interfaces, and generics.
 
 ---
 
-## Inheritance and Interfaces
+## Features
 
-- **Inheritance**: `Actor` is an abstract base class. `Cat`, `Dog`, and `Bird` extend `Actor` and override the `canEnter` method for terrain-specific movement rules.  
-- **Interfaces**: `Terrain` is an interface implemented by `Grass` and `Water`. Each terrain type defines its own `getMovementCost()` and `getColor()` methods.
-- This design allows easy extension:
-  - Adding a new actor requires only a new subclass of `Actor`.
-  - Adding a new terrain type requires implementing the `Terrain` interface.
-
----
-
-## Generics 
-
-- `Inventory<T>` is a generic class used to store items in a type-safe way.
-- Each `Actor` has an `Inventory<Item>` allowing them to collect items without type casting.
-- The points system interacts with the `Inventory<Item>`: points are awarded when an actor collects a compatible item from their inventory.  
-- This demonstrates genuine use of generics beyond just collections, meeting the rubric requirement.
+- Clicking a cell moves the actor in turn: Cat → Dog → Bird.  
+- Multiple terrain types: Grass, Sand, Water.  
+- Water cells are randomly placed for variety; Sand follows a pattern.  
+- Items on the grid: Fish, Bone, Seed.  
+- Custom movement rules:  
+  - Cat and Dog cannot enter water.  
+  - Bird can move over any terrain.  
+- Items can only be collected by the right actor:  
+  - Cat → Fish, Dog → Bone, Bird → Seed.  
+- Points are awarded for picking up items and shown in real-time.  
+- Item colors for clarity: Fish – Magenta, Bone – Orange, Seed – Cyan.
 
 ---
 
-## Uniqueness and Creativity 
+## Inheritance & Interfaces
 
-- Beyond classwork:  
-  - Added multiple terrain types and distinct items.  
-  - Inventory system using generics.  
-  - Points system adds a layer of interactivity and feedback not in classwork.
-- Fully interactive: Clicking collects items, respects movement rules, and visually updates the grid.
+- **Inheritance:** `Actor` is an abstract base class. Cat, Dog, and Bird extend Actor and override `canEnter` to define terrain-specific movement rules.  
+- **Interfaces:** `Terrain` is implemented by Grass, Sand, and Water, each defining `getMovementCost()` and `getColor()`.  
+
+This design allows easy extension:  
+
+- Adding a new actor only requires creating a new subclass of `Actor`.  
+- Adding a new terrain type only requires implementing the `Terrain` interface.
 
 ---
 
-## How to Compile and Run
+## Generics
 
-1. Ensure you have **Java 11** or **Java 21** installed.
-2. Open a terminal and navigate to the project folder.
-3. Compile all `.java` files:
+- `Inventory<T>` is a generic class used to store items in a type-safe way.  
+- Each actor has an `Inventory<Item>`, allowing collection of compatible items without type casting.  
+- The points system interacts with the inventory: points are awarded when an actor collects a compatible item.  
+
+This demonstrates genuine use of generics beyond standard collections.
+
+---
+
+## Creativity
+
+- Random water cells make movement more interesting.  
+- Inventory system ensures type safety.  
+- Points system adds immediate feedback.  
+- Fully interactive: clicking respects rules, updates visually, and collects items.
+
+---
+
+## How to Compile & Run
+
+1. Make sure Java 11 or 21 is installed.  
+2. Open a terminal in the project folder.  
+3. Compile all files:  
 
 
